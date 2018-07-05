@@ -1,0 +1,28 @@
+body {
+    font-family: 'Helvetica', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.grid-container{
+    width: 500px;
+}
+
+.grid{
+    background-color: #00bbff;
+    border: solid 1px #000;
+    width: 33.33%;
+    height: 200px;
+
+}
+
+.score-container    {
+    width: 100%;
+    text-align: left;
+    padding: 5%;
+
+}    
+.score{
+    width: 100%;
+}
+

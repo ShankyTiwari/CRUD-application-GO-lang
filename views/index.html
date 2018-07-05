@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="app">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/public/css/bootstrap.min.css" media="all" rel="Stylesheet" type="text/css" /> 
+    <link href="/public/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-8 user-list">
+                    
+                    <h2>List of Users</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item" 
+                            ng-repeat="user in userList"
+                            >
+                            <h5> {{ user.Name }}  {{ user.Lname }} </h5>
+                            <h6> {{ user.Country }} </h6>
+                        </li>
+                    </ul>
+                    
+                </div>
+
+                <div class="col-md-4 message-box">
+                    
+                    <h2>Add new User</h2>
+                    <div class="form-container">
+                       
+                        <div class="form-group">
+                            <label>Name : </label>
+                            <input ng-model='name' type="text" name="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name : </label>
+                            <input ng-model='lname' type="text" name="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Country : </label>
+                            <input ng-model='country' type="text" name="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" ng-click="insertUser()">Add user</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </body> 
+    
+    <script src="/public/js/angular.min.js"></script>
+    <script src="/public/js/script.js"></script>
+</html>
