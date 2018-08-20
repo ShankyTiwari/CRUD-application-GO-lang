@@ -11,6 +11,6 @@ var db *sql.DB
 var err error
 
 func connectDatabse() {
+	db, err = sql.Open("mysql", "root:root@/test")
 	fmt.Println("Database connected.")
-	db, err = sql.Open("mysql", "root:@/test")
 }

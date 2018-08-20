@@ -29,12 +29,12 @@ func getUsersFromDB() []byte {
 }
 
 func insertUserInDB(userDetails User) bool {
-	stmt, err := db.Prepare("INSERT into users SET id=?,name=?,lname=?,country=?")
+	stmt, err := db.Prepare("INSERT into users SET Name=?,Lname=?,Country=?")
 	if err != nil {
 		fmt.Println(err)
 		return false
 	}
-	_, queryError := stmt.Exec("", userDetails.Name, userDetails.Lname, userDetails.Country)
+	_, queryError := stmt.Exec(userDetails.Name, userDetails.Lname, userDetails.Country)
 	if queryError != nil {
 		fmt.Println(queryError)
 		return false
