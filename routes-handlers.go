@@ -36,16 +36,14 @@ func insertUser(response http.ResponseWriter, request *http.Request) {
 	if err != nil {
 		returnErrorResponse(response, request, httpError)
 	} else {
+		httpError.Code = http.StatusBadRequest
 		if userDetails.Name == "" {
-			httpError.Code = http.StatusBadRequest
 			httpError.Message = "First Name can't be empty"
 			returnErrorResponse(response, request, httpError)
 		} else if userDetails.Lname == "" {
-			httpError.Code = http.StatusBadRequest
 			httpError.Message = "Last Name can't be empty"
 			returnErrorResponse(response, request, httpError)
 		} else if userDetails.Country == "" {
-			httpError.Code = http.StatusBadRequest
 			httpError.Message = "Country can't be empty"
 			returnErrorResponse(response, request, httpError)
 		} else {
@@ -88,20 +86,17 @@ func updateUser(response http.ResponseWriter, request *http.Request) {
 	if err != nil {
 		returnErrorResponse(response, request, httpError)
 	} else {
+		httpError.Code = http.StatusBadRequest
 		if userDetails.Name == "" {
-			httpError.Code = http.StatusBadRequest
 			httpError.Message = "First Name can't be empty"
 			returnErrorResponse(response, request, httpError)
 		} else if userDetails.ID == 0 {
-			httpError.Code = http.StatusBadRequest
 			httpError.Message = "user Id can't be empty"
 			returnErrorResponse(response, request, httpError)
 		} else if userDetails.Lname == "" {
-			httpError.Code = http.StatusBadRequest
 			httpError.Message = "Last Name can't be empty"
 			returnErrorResponse(response, request, httpError)
 		} else if userDetails.Country == "" {
-			httpError.Code = http.StatusBadRequest
 			httpError.Message = "Country can't be empty"
 			returnErrorResponse(response, request, httpError)
 		} else {

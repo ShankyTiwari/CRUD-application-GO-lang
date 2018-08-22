@@ -7,24 +7,24 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func setStaticFolder(r *mux.Router) {
+func setStaticFolder(route *mux.Router) {
 	fs := http.FileServer(http.Dir("./public/"))
-	r.PathPrefix("/public/").Handler(http.StripPrefix("/public/", fs))
+	route.PathPrefix("/public/").Handler(http.StripPrefix("/public/", fs))
 }
 
-func routes(r *mux.Router) {
+func addApproutes(route *mux.Router) {
 
-	setStaticFolder(r)
+	setStaticFolder(route)
 
-	r.HandleFunc("/", renderHome)
+	route.HandleFunc("/", renderHome)
 
-	r.HandleFunc("/user", getUsers).Methods("GET")
+	route.HandleFunc("/user", getUsers).Methods("GET")
 
-	r.HandleFunc("/user", insertUser).Methods("POST")
+	route.HandleFunc("/user", insertUser).Methods("POST")
 
-	r.HandleFunc("/user/{id}", deleteUser).Methods("DELETE")
+	route.HandleFunc("/user/{id}", deleteUser).Methods("DELETE")
 
-	r.HandleFunc("/user", updateUser).Methods("PUT")
+	route.HandleFunc("/user", updateUser).Methods("PUT")
 
 	fmt.Println("Routes are Loded.")
 }

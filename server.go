@@ -14,9 +14,9 @@ func main() {
 
 	connectDatabse()
 
-	r := mux.NewRouter()
+	route := mux.NewRouter()
 
-	routes(r)
+	addApproutes(route)
 
-	log.Fatal(http.ListenAndServe(":8000", r))
+	log.Fatal(http.ListenAndServe(":8000", route))
 }
